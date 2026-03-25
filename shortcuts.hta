@@ -3,7 +3,7 @@
 <meta content="ie=9">
 <title>Run2</title>
 <hta:application 
-    id="oRun" 
+    id="Run2" 
     border="dialog" 
     innerborder="no" 
     scroll="no" 
@@ -14,30 +14,55 @@
 
 <style>	
     body { 
-	 background-color: #D4D0C8; font-family: "Tahoma", sans-serif; font-size: 8pt; margin: 10px; }
-    .main-layout { 
-	 display: flex; gap: 15px; }
+	 background-color: #C4D0C6; font-family: "Tahoma", sans-serif; font-size: 8pt; 
+	 }
+	.main-layout {
+	
+	 }
+    .UI-layout { 
+	 display: flex; flex-direction: column;
+	 background-color: #D4D0CA;
+	 gap: 15px; 
+	 }	 
     input { 
-	 width: 170px; margin-bottom: 5px; border: 2px inset #FFF; padding: 2px; }
+	 margin-bottom: 5px; padding: 2px; 
+	 border: 1px inset #C4D0C6;
+	 }
+	.selector { 
+	 text-align: center;
+	 width: 17px; height: 17px;
+	 margin: 0px 5px 5px 0px;   
+	 border: 2px; inset whatever;
+	}	 
+	 *{box-sizing: border-box;} 
     .label { 
-	 margin-bottom: 3px; }	
-	 *{box-sizing: border-box;}
+	 font: unset;  
+	 margin-bottom: 3px; 
+	 }	
 </style>
 
 <body>
+		<hr style="width:100%; border: 0; border-top: 1px solid #C4D0C6;">
 	<div class="main-layout">
-        <div class="label">Shortcuts to run:</div>
-	<!--styles for input is set in css by the way-> 	
+	<div class="UI-layout">
+        <div class="label">Shortcuts to run: </div>
+ <!--reminder styles for input is set in css -> 
+				<input type="button" value="..." id ="selector1" class="selector">	
         <input type="text" id="shortcut1"></br>
-        <input type="text" id="shortcut2" value =""></br>
+				<input type="button" value="..." id ="selector1" class="selector">
+        <input type="text" id="shortcut2"></br>
+				<input type="button" value="..." id ="selector1" class="selector">
         <input type="text" id="shortcut3"></br>
+				<input type="button" value="..." id ="selector1" class="selector">
         <input type="text" id="shortcut4"></br>
+				<input type="button" value="..." id ="selector1" class="selector">
         <input type="text" id="shortcut5"></br>
-        <input type="text" id="shortcut6"></br>	
-    <hr style="width:100%; border: 0; border-top: 1px solid #ACA899;">
-		<input type="button" value="Browse..."
-			
-			style="margin-bottom: 65px"	onclick="BrowseFile" >			
+				<input type="button" value="..." id ="selector1" class="selector">
+        <input type="text" id="shortcut6"></br>		
+		<hr style="width:100%; border: 0; border-top: 1px solid #C4D0C6;">
+	</div>	 
+		 <input type="button" value="Browse..."
+			style="margin-bottom:70px"	onclick="browseExplorer" >			
     </div>
 </body>
 
@@ -52,31 +77,31 @@
 Dim oShell, oApp 
  set oShell = CreateObject("WScript.Shell")
  set oApp = CreateObject("Shell.Application")
-Dim RUNTwo 
-' RUNTwo = abcdef 	' reminder to include later 
-Dim shortcut1, shortcut2, shortcut3, shortcut4, shortcut5, shortcut6
-Dim shortcut(6) ' shortcut(s) array
-
+ Dim shortcut1, shortcut2, shortcut3, shortcut4, shortcut5, shortcut6
+' Dim shortcut(6) 	' shortcut(s) array 
+ Dim selector1, selector2, selector3, selector4, selector5, selector6
+ Dim RUNTwo 
+' RUNTwo = abcdef 	' reminder to include later  '?
+	 
 ' **************************
 ' SUBROUTINES 			  *
-' *************************
+'	where 1st is on load **
+' ************************
 	Sub Window_OnLoad
- ' window resize: width, height. 
+ ' window.resize to: width, height. 
 window.resizeTo 220, document.body.scrollHeight
-	 call scLoop()
+	 call main()
 	end Sub
 
-	Sub scLoop()
-Dim i
-	on Error Resume Next
- For i = 1 To 6
-  shortcut(i) = oShell.RegRead("HKCU\Software\Run2\Path" & i)
-  document.getElementById("shortcut" &i).value = i
- Next 
+	 Sub main() 
+	 
+	 end Sub
+
+	Sub browseExplorer
+	 
 	end Sub
-' this loop is in a sub to save memory and go fast (blazing) on load. 
-
-
-
+	
+	
+	
 
 </script>
